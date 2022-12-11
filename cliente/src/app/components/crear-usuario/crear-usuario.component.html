@@ -1,0 +1,61 @@
+<div class="container mt-5">
+    <div class="class row">
+        <div class=" col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">CREAR USUARIO</span>
+                    <form class="mt-3" [formGroup]="usuarioForm"(ngSubmit)="agregarUsuario()">
+                        <div class="mb-3">
+                            <input type="text" formControlName="primerNombre"
+                            class="form-control form-control-lg" placeholder="Primer Nombre">
+                            <div class="text-danger"
+                                *ngIf="usuarioForm.get('primerNombre')?.hasError('required')
+                                && usuarioForm.get('primerNombre')?.touched">
+                                <span>El primer Nombre <strong>es obligatorio.</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="segundoNombre"
+                            class="form-control form-control-lg" placeholder="Segundo Nombre">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="primerApellido"
+                            class="form-control form-control-lg" placeholder="Primer Apellido">
+                            <div class="text-danger"
+                                *ngIf="usuarioForm.get('primerApellido')?.hasError('required')
+                                && usuarioForm.get('primerApellido')?.touched">
+                                <span>El primer Apellido <strong>es obligatorio.</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="segundoApellido"
+                            class="form-control form-control-lg" placeholder="Segundo Apellido">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" formControlName="correo"
+                            class="form-control form-control-lg" placeholder="Email">
+                            <div class="text-danger"
+                                *ngIf="usuarioForm.get('correo')?.hasError('required')
+                                && usuarioForm.get('correo')?.touched">
+                                <span>El correo <strong>es obligatorio.</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="number" formControlName="edad"
+                            class="form-control form-control-lg" placeholder="Edad">
+                            <div class="text-danger"
+                                *ngIf="usuarioForm.get('edad')?.hasError('required')
+                                && usuarioForm.get('edad')?.touched">
+                                <span>La edad <strong>es obligatoria.</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" [disabled]="usuarioForm.invalid" class="btn btn-success btn-lg float-start">ACEPTAR</button>
+                            <button routerLink="/" class="btn btn-secondary btn-lg float-end">VOLVER</button>                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
